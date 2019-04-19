@@ -1,5 +1,5 @@
 {
-  "name": "sprinty",
+  "name": "sprintr",
   "version": "0.0.0",
   "bin": {
     "sprint": "index.js"
