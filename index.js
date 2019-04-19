@@ -9,8 +9,8 @@ if (yamlConfPath) {
   console.log('using yaml configuration found at', yamlConfPath);
   const YAML = require('yamljs');
   yamlConf = YAML.load(yamlConfPath);
-  if (argv.dry) {
-    console.log('yamlConf is', yamlConf);
+  if (argv.verbose) {
+    console.log('yamlConf is', JSON.stringify(yamlConf, {}, 2));
   }
 }
 
@@ -21,7 +21,7 @@ request({
   method: 'POST',
   url: `https://${conf.auth.account}.atlassian.net/rest/api/3/issue`,
   headers: {
-    'Authorization': 'Basic ' + Buffer.from(conf.auth.username + ':' + conf.auth.username).toString('base64')
+    'Authorization': 'Basic ' + Buffer.from(conf.auth.username + ':' + conf.auth.token).toString('base64')
   },
   json: {
     'fields': Object.assign(targetConf, { summary: argv.summary })
