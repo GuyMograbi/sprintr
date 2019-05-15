@@ -1,15 +1,26 @@
 {
   "name": "sprintr",
   "version": "0.0.2",
+  "scripts": {
+    "lint": "semistandard",
+    "test": "npm run lint"
+  },
   "bin": {
     "sprint": "index.js"
   },
   "dependencies": {
+    "cli-table": "^0.3.1",
     "find-up": "^3.0.0",
     "minimist": "^1.2.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "semistandard": "^13.0.1",
-    "yamljs": "^0.3.0"
+    "word-wrap": "^1.2.3",
+    "yamljs": "^0.3.0",
+    "chalk": "^2.4.2",
+    "lodash": "^4.17.11",
+    "terminal-link": "^1.3.0"
+  },
+  "devDependencies": {
+    "semistandard": "^13.0.1"
   }
 }

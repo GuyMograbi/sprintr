@@ -12,6 +12,19 @@ sprint --summary "do this task"
 >> { id: '25767',
   key: 'ABC-10566',
   self: 'https://myaccount.atlassian.net/rest/api/3/issue/11111111' }
+
+
+sprint status
+
+>>
+────────────────────────────────────────────────────────────────┬──────────────────────────────────────────────────┬────────────────────────────────────────────┐
+│ TODO                                                          │ In Progress                                      │ Done                                       │
+├───────────────────────────────────────────────────────────────┼──────────────────────────────────────────────────┼────────────────────────────────────────────┤
+| Task 1 Summary                                                |                                                  |                                            |
+| ---------                                                     |                                                  |                                            |
+| Bug       Assignee1                                           |                                                  |                                            |
+| https://account.atlassian.net/browse/KEY-1234                 |                                                  |                                            |
+└───────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────┴────────────────────────────────────────────┘
 ```
 
 # Conf file
@@ -25,6 +38,15 @@ default:
     token: __token__ // generate at https://id.atlassian.com/manage-profile/security
     username: __user__
     account: __account__ // subdomain
+  columns:
+    - label: TODO
+      statuses: ["Open", "Reopened"]
+    - label: In Progress
+      statuses: ["In Progress"]
+    - label: Done
+      statuses: ["Resolved", "Closed"]
+  filter:
+    status: 123456 // filterId from savedFilters in Jira
   target:
     default: // only default currently supported
       project:
@@ -40,3 +62,8 @@ default:
       assignee:
         name: __username__
 ```
+
+
+# Nice references
+
+ - https://docs.atlassian.com/jira-software/REST/7.3.1/?_ga=2.81964309.20891550.1518072342-1846470600.1499088547#agile/1.0/sprint-getSprint
