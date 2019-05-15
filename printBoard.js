@@ -1,7 +1,6 @@
 const wrap = require('word-wrap');
 const chalk = require('chalk');
 const _ = require('lodash');
-const terminalLink = require('terminal-link');
 
 var Table = require('cli-table');
 
@@ -14,7 +13,7 @@ const colorType = (type) => {
     Task: chalk.cyan(type),
     Test: chalk.magenta(type)
   }[type] || type;
-}
+};
 
 function pickFields (account, issue) {
   const result = {
