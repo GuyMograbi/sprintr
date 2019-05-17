@@ -1,6 +1,6 @@
 {
   "name": "sprintr",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "lint": "semistandard",
     "test": "npm run lint"
