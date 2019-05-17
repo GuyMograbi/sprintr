@@ -46,7 +46,8 @@ exports.print = (conf, issues) => {
   while (!_.isEmpty(issues)) {
     count++;
     if (count > 100) {
-      process.exit(0);
+      console.error('unable to map some issues. too many iterations. leftovers are', Object.keys(issues));
+      process.exit(1);
     }
     const row = [];
     _.each(columns, c => {
